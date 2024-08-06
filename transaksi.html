@@ -11,16 +11,16 @@
     <title>Transaksi - T-Shirt-Raffi</title>
 </head>
 <body>
-    <div class="header" id="header">
-        <div class="navbar">
-            <h3 style="color: black;">T-Shirt Raffi</h3>
-            <div>
-                <a href="index.html">Beranda</a>
-                <a href="produk.html">Produk</a>
-                <a href="transaksi.html">Transaksi</a>
-                <a href="tentang.html">Tentang</a>
-            </div>
+    <div class="navbar">
+        <div class="logo">T-Shirt Raffi</div>
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="produk.html">Produk</a>
+          <a href="transaksi.html">Transaksi</a>
+          <a href="tentang.html">Kontak</a>
         </div>
+      </div>
+    <div class="header" id="header">
         <div class="header-content">
             <div class="header-text">
                 <h1>Formulir Transaksi</h1>
@@ -45,11 +45,10 @@
             </form>
 
             <div class="transaction-table">
-                <h2>Rekaman Transaksi</h2>
+                <h2 style="color: black;">Rekaman Transaksi</h2>
                 <table id="transaction-records">
                     <thead>
                         <tr>
-                            <th>ID Transaksi</th>
                             <th>Customer</th>
                             <th>Produk</th>
                             <th>Jumlah</th>
@@ -64,55 +63,63 @@
         </div>
     </div>
 
-    <div class="footer">
-        <p>Ikuti kami di:</p>
-        <div class="social-icons">
-            <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" /></a>
-            <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/6/60/Twitter_Logo_as_of_2021.svg" alt="Twitter" /></a>
-            <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" /></a>
+    <footer>
+        <div class="footer-container">
+          <div class="footer-section">
+            <h2>Tentang Kami</h2>
+            <p>T-Shirt Raffi adalah toko baju yang murah dan berkualitas .</p>
+          </div>
+          <div class="footer-section">
+            <h2>Kontak</h2>
+            <p>Email: tshirt-raffi@gmail.com</p>
+            <p>Telepon: 08882285069</p>
+          </div>
+          <div class="footer-section">
+            <h2>Ikuti Kami</h2>
+            <div class="social-links">
+              <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" style="width:30px;"></a>
+              <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style="width:30px;"></a>
+              <a href="#"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTI-h-e2hgz8mwGfCt4gvj4IgMG_wAUolVM6w&s" alt="Twitter" style="width:30px;"></a>
+            </div>
+          </div>
         </div>
-    </div>
+      </footer>
 
     <script>
         var data = [];
-        var i = 0;
 
         function addTransaction(event) {
-            event.preventDefault(); 
+            event.preventDefault();
 
-            
             var customerName = document.getElementById('customer-name').value;
             var productSelect = document.getElementById('product');
             var productText = productSelect.options[productSelect.selectedIndex].text;
             var productPrice = parseFloat(productSelect.options[productSelect.selectedIndex].getAttribute('data-price'));
             var quantity = parseInt(document.getElementById('quantity').value);
-            var amount = (productPrice * quantity).toFixed(2); 
-            var transactionId = 'TX' + (i + 1);
+            var amount = 'Rp' + (productPrice * quantity).toLocaleString();
 
-            data[i] = {
-                id: transactionId,
+            var transaction = {
                 customer: customerName,
                 product: productText,
                 quantity: quantity,
-                amount: 'Rp' + amount
+                amount: amount
             };
-            i++;
-            updateTable(); 
+            data.push(transaction);
+            updateTable();
         }
 
         function updateTable() {
             var tableBody = document.getElementById('transaction-records').getElementsByTagName('tbody')[0];
-            tableBody.innerHTML = ''; 
+            tableBody.innerHTML = '';
 
-            for (var j = 0; j < data.length; j++) {
+            for (var i = 0; i < data.length; i++) {
                 var row = '<tr>' +
-                    '<td>' + data[j].id + '</td>' +
-                    '<td>' + data[j].customer + '</td>' +
-                    '<td>' + data[j].product + '</td>' +
-                    '<td>' + data[j].quantity + '</td>' +
-                    '<td>' + data[j].amount + '</td>' +
+                    '<td>' + data[i].customer + '</td>' +
+                    '<td>' + data[i].product + '</td>' +
+                    '<td>' + data[i].quantity + '</td>' +
+                    '<td>' + data[i].amount + '</td>' +
                     '</tr>';
-                tableBody.innerHTML += row; 
+                tableBody.innerHTML += row;
             }
         }
     </script>

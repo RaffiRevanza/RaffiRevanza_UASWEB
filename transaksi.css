@@ -1,13 +1,13 @@
 body, html {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     box-sizing: border-box;
 }
 
 .header {
     background: url('https://images.unsplash.com/photo-1445205170230-053b83016050?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
-    min-height: 100vh; 
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -17,26 +17,20 @@ body, html {
 }
 
 .navbar {
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 80%;
-    max-width: 1200px;
-    padding: 10px 20px;
-    background-color: rgba(255, 255, 255, 0.8); 
-    margin-bottom: 20px; 
-    border-radius: 5px;
-    height: 50px;
-}
-
-.navbar a {
-    color: black;
+  }
+  
+  .navbar a {
+    color: white;
     text-decoration: none;
-    padding: 8px 15px;
-    font-family: "Poppins", sans-serif;
-    font-weight: 700;
-    font-size:1em;
-}
+    margin: 0 10px;
+  }
+  
 
 .header-content {
     display: flex;
@@ -46,23 +40,22 @@ body, html {
     max-width: 1200px;
     margin-top: 100px;
     padding: 20px;
-}
-
-.header-text {
-    margin-bottom: 20px;
-    text-align: center;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
 }
 
 .header-text h1 {
     font-size: 3em;
     margin: 0;
-    font-family: "Poppins", sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 700;
+    color: black;
 }
 
 .header-text p {
     font-size: 1.2em;
     margin-top: 10px;
+    color: black;
 }
 
 .transaction-form {
@@ -71,39 +64,41 @@ body, html {
     width: 100%;
     max-width: 600px;
     margin-bottom: 20px;
-    color:black;
+    color: black;
 }
 
 .transaction-form label {
     margin-bottom: 5px;
     font-weight: 600;
-    color:white;
+    color: black;
 }
 
-.transaction-form input, .transaction-form select {
+.transaction-form input,
+.transaction-form select {
     margin-bottom: 15px;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
 }
 
-.transaction-form button {
+.transaction-form input[type="submit"] {
     padding: 10px 15px;
     background-color: #007bff;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-weight: 600;
 }
 
-.transaction-form button:hover {
+.transaction-form input[type="submit"]:hover {
     background-color: #0056b3;
 }
-
 
 .transaction-table {
     width: 100%;
     overflow-x: auto;
+    margin-top: 20px;
 }
 
 .transaction-table table {
@@ -111,14 +106,15 @@ body, html {
     border-collapse: collapse;
     background: white;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.transaction-table th, .transaction-table td {
+.transaction-table th,
+.transaction-table td {
     padding: 12px;
     text-align: left;
     border-bottom: 1px solid #ddd;
-    color:black;
+    color: black;
 }
 
 .transaction-table th {
@@ -130,26 +126,35 @@ body, html {
     background-color: #f9f9f9;
 }
 
-.footer {
-    background: black;
+footer {
+    background-color: black;
     color: white;
     text-align: center;
-    padding: 20px;
-}
-
-.footer p {
-    margin: 5px 0;
-}
-
-.social-icons {
-    margin-top: 10px;
-}
-
-.social-icons a {
-    margin: 0 10px;
-}
-
-.social-icons img {
-    width: 24px;
-    height: 24px;
-}
+    padding: 40px 20px;
+  }
+  
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #555;
+  }
+  
+  .footer-section {
+    max-width: 33%;
+  }
+  
+  .footer-section h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+  
+  .footer-section p {
+    font-size: 1em;
+    line-height: 1.5em;
+  }
+  
+  .social-links {
+    display: flex;
+    justify-content: space-around;
+  }
